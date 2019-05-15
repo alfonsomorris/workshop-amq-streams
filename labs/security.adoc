@@ -43,9 +43,11 @@ EOF
 
 Let's deploy the new configuration:
 
-----
+```bash
+
 oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-streams/master/configurations/clusters/production-ready-secured.yaml
-----
+
+```
 
 Watch for the changes in the stateful set.
 Once all pods have been restarted, you can proceed.
