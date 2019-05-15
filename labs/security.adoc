@@ -8,7 +8,7 @@ The first step for securing a Kafka cluster is securing its listeners.
 You can add security options to each of the configured listeners.
 For example, let us change the cluster definition for the plain listener.
 
-----
+```yaml
 apiVersion: kafka.strimzi.io/v1alpha1
 kind: Kafka
 metadata:
@@ -39,7 +39,7 @@ spec:
     topicOperator: {}
     userOperator: {}
 EOF
-----
+```
 
 Let's deploy the new configuration:
 
