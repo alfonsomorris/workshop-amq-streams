@@ -33,9 +33,11 @@ Notice a few important attributes:
 
 Now let's deploy the `KafkaTopic` into our current project:
 
-----
+```shell
+
 oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-streams/master/configurations/topics/lines.yaml
-----
+
+```
 
 Let's wait a number of seconds and let's try to check that the topic has been created and log into one of the Kafka pods.
 You can use the command below or use the web console and the Terminal tab.
@@ -59,6 +61,12 @@ Topic:lines	PartitionCount:2	ReplicationFactor:2	Configs:segment.bytes=107374182
 ----
 
 Exit the container shell.
+
+```
+
+exit
+
+```
 
 Now let's increase the number of partitions.
 First, we need to amend the resource.
@@ -84,12 +92,27 @@ oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-strea
 ----
 
 And let's get the topic information again.
-The topic has now 10 partitions and also note the increased retention time.
 
-----
+Log into the pod:
+
+```shell
+
 oc rsh production-ready-kafka-0
 
+````
+
+Get information about the topics:
+
+```shell
+
 bin/kafka-topics.sh --zookeeper localhost:2181 --topic lines --describe
+
+```
+
+The topic has now 10 partitions and also note the increased retention time.
+
+```
+
 OpenJDK 64-Bit Server VM warning: If the number of processors is expected to increase from one, then you should configure the number of parallel GC threads appropriately using -XX:ParallelGCThreads=N
 Topic:lines	PartitionCount:10	ReplicationFactor:2	Configs:segment.bytes=1073741824,retention.ms=14400000
 	Topic: lines	Partition: 0	Leader: 2	Replicas: 3,2	Isr: 2
@@ -102,7 +125,8 @@ Topic:lines	PartitionCount:10	ReplicationFactor:2	Configs:segment.bytes=10737418
 	Topic: lines	Partition: 7	Leader: 1	Replicas: 1,2	Isr: 1,2
 	Topic: lines	Partition: 8	Leader: 2	Replicas: 2,0	Isr: 2,0
 	Topic: lines	Partition: 9	Leader: 0	Replicas: 0,2	Isr: 0,2
-----
+
+```
 
 We can now exit the container.
 
