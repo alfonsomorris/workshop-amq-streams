@@ -144,7 +144,7 @@ We will create now the most basic cluster possible.
 The configuration file is https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-streams/master/configurations/clusters/simple-cluster.yaml[here].
 You can open it - it looks like this:
 
-```bash
+```yaml
 
 apiVersion: kafka.strimzi.io/v1alpha1
 kind: Kafka
