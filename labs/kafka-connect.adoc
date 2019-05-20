@@ -36,6 +36,14 @@ We will expect a response similar to:
 {"name":"local-file-sink","config":{"connector.class":"FileStreamSinkConnector","tasks.max":"1","file":"/tmp/test.sink.txt","topics":"lines","value.converter.schemas.enable":"false","value.converter":"org.apache.kafka.connect.storage.StringConverter","key.converter":"org.apache.kafka.connect.storage.StringConverter","key.converter.schemas.enable":"false","name":"local-file-sink"},"tasks":[{"connector":"local-file-sink","task":0}],"type":null}
 ----
 
+Exit out of remote server:
+
+```
+
+exit
+
+``
+
 Now the job `local-file-sink` is configured to ingest data from the `lines` topic in our cluster.
 
 Let's check that the job works.
