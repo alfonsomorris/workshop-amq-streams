@@ -1,0 +1,21 @@
+:source-highlighter: pygments
+
+== commands-only
+
+oc login -u admin master00.example.com
+
+=== Topic Management
+
+oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-streams/master/configurations/topics/lines.yaml
+
+oc rsh production-ready-kafka-0
+
+bin/kafka-topics.sh --zookeeper localhost:2181 --topic lines --describe
+
+oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-streams/master/configurations/topics/lines-10.yaml
+
+oc rsh production-ready-kafka-0
+
+exit
+
+=== Security for clusters and topics
