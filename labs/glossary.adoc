@@ -2,7 +2,29 @@
 
 == Kubernetes
 
+https://kubernetes.io/
+
+Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications.
+
+Kubernetes groups containers (Docker or CRI-O) that make up an application into logical units for easy management and discovery. Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.
+
+=== Docker
+
+http://docker.com
+
+Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package. By doing so, thanks to the container, the developer can rest assured that the application will run on any other Linux machine regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
+
+=== Crio-O
+
+https://cri-o.io/
+
+CRI-O is an implementation of the Kubernetes CRI (Container Runtime Interface) to enable using OCI (Open Container Initiative) compatible runtimes. It is a lightweight alternative to using Docker as the runtime for kubernetes. It allows Kubernetes to use any OCI-compliant runtime as the container runtime for running pods. Today it supports runc and Kata Containers as the container runtimes but any OCI-conformant runtime can be plugged in principle.
+
+
+
 == OpenShift
+
+Red Hat OpenShift is a Kubernetes platform for standardized, self-service dev environments and full-stack automated ops, designed to allow the enterpirse to focus on the code that will make a difference (instead of Kubernetes and its' related infrastructure concerns.)
 
 == Strimzi
 
