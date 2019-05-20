@@ -46,7 +46,8 @@ If it does already exist, be sure that it is the current project working on.
 The configuration files for the cluster operator are available in the `install/cluster-operator` folder.
 Let's take a quick look.
 
-----
+```bash
+
 $ ls install/cluster-operator
 010-ServiceAccount-strimzi-cluster-operator.yaml
 020-ClusterRole-strimzi-cluster-operator-role.yaml
@@ -66,7 +67,8 @@ $ ls install/cluster-operator
 044-Crd-kafkauser.yaml
 045-Crd-kafkamirrormaker.yaml
 050-Deployment-strimzi-cluster-operator.yaml
-----
+
+```
 
 We will not get into details about the structure of the files, but, for now, it is important to understand that, taken together, they are the complete set of resources required to set up AMQ Streams on an OpenShift cluster.
 The files include:
@@ -80,19 +82,24 @@ Prior to installing the cluster operator, we will need to configure the namespac
 We will do this by modifying the `*RoleBinding*.yaml` files to point to the newly created project `amq-streams`.
 You can do this by simply editing all files via `sed`.
 
-----
+```
+
 sed -i 's/namespace: .*/namespace: amq-streams/' install/cluster-operator/*RoleBinding*.yaml
-----
+
+```
 
 Let's take a look at the result in one of the modified files:
 
-----
+```
+
 more install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml
-----
+
+```
 
 The output should look like this:
 
-----
+```
+
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: RoleBinding
 metadata:
@@ -107,7 +114,8 @@ roleRef:
   kind: ClusterRole
   name: strimzi-cluster-operator-namespaced
   apiGroup: rbac.authorization.k8s.io
-----
+
+```
 
 Notice the `amq-streams` value configured for the `subjects.namespace` property.
 You can check the other `*RoleBinding*.yaml` files for similar changes.
@@ -118,9 +126,11 @@ Now that the configuration files have been set, we can proceed with installing t
 
 Once the configuration files are changed, you can install the cluster operator:
 
-----
+```
+
 oc apply -f install/cluster-operator
-----
+
+```
 
 For visualizing the result, log into the OpenShift console with the `admin` user.
 Navigate to the `amq-streams` project and visualize the current deployments.
@@ -134,7 +144,8 @@ We will create now the most basic cluster possible.
 The configuration file is https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-streams/master/configurations/clusters/simple-cluster.yaml[here].
 You can open it - it looks like this:
 
-----
+```bash
+
 apiVersion: kafka.strimzi.io/v1alpha1
 kind: Kafka
 metadata:
@@ -158,12 +169,18 @@ spec:
   entityOperator:
     topicOperator: {}
     userOperator: {}
-----
+
+
+```
 
 Now let's create the cluster by deploying this new custom resource:
-----
+
+```bash
+
+
 oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-streams/master/configurations/clusters/simple-cluster.yaml
-----
+
+```
 
 Again, follow the deployment from the OpenShift console.
 You should see three separate deployments:
@@ -177,22 +194,31 @@ You should see three separate deployments:
 Now, let's quickly test that the deployed Kafka cluster works.
 Let's log into one of the cluster pods:
 
-----
+```bash
+
+
 $ oc rsh simple-cluster-kafka-0
-----
+
+```
 
 Next, let's start a producer:
 
-----
+```bash
+
+
 $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test-topic
-----
+
+```
 
 Once the console producer is started, enter a few values:
 
-----
+```bash
+
 > test
 > test2
-----
+
+```
+
 
 (Do not worry if you see the warnings below.
 They are part of the interaction and indicate that the topic has not been found and broker will autocreate the `test-topic`.
