@@ -8,4 +8,4 @@ link:images/getting-started-01.png[]
 
 After you submit you will be taken to a confirmation page with a GUID.  You need this GUID for the lab so copy it down!
 
-link:images/getting-started-02.png[]
+![GUID](images/getting-started-01.png "Step 1 - GUID")
