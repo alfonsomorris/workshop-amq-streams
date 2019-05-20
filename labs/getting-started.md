@@ -1,4 +1,4 @@
-= Getting Started
+# Getting Started
 
 Open the following url in your browser and fill out the form with the activation code, "kdafka-msp," and your email address (we won't spam you.)
 
