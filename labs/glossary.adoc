@@ -1,0 +1,66 @@
+= Glossary of Terms
+
+== Kubernetes
+
+== OpenShift
+
+== Strimzi
+
+https://strimzi.io/
+
+Strimzi provides a simple, efficient way to run an Apache Kafka cluster on Kubernetes (and OpenShift) with various configurations.
+
+== Apache Kafka
+
+==== Namespace
+
+https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/projects_and_users.html#namespaces
+
+A Kubernetes namespace provides a mechanism to scope resources in a cluster. In OpenShift, a project is a Kubernetes namespace with additional annotations.  Namespaces provide a unique scope for:
+
+* Named resources to avoid basic naming collisions.
+* Delegated management authority to trusted users.
+* The ability to limit community resource consumption.
+
+Most objects in the system are scoped by namespace, but some are excepted and have no namespace, including nodes and users.
+
+==== Service Accounts
+
+https://docs.openshift.com/container-platform/3.11/dev_guide/service_accounts.html
+
+Service accounts provide a flexible way to control API access without sharing a regular user’s credentials.
+
+When a person uses the OpenShift Container Platform CLI or web console, their API token authenticates them to the OpenShift API. However, when a regular user’s credentials are not available, it is common for components to make API calls independently. For example:
+
+* Replication controllers make API calls to create or delete pods.
+* Applications inside containers could make API calls for discovery purposes.
+* External applications could make API calls for monitoring or integration purposes.
+
+Service Accounts allow these and similar functions to be executed by agents other than a particular user
+
+==== Operator Framework
+
+https://docs.openshift.com/container-platform/3.11/install_config/installing-operator-framework.html
+
+The Operator Framework is an open source toolkit designed to manage Kubernetes native applications, called Operators, in a more effective, automated, and scalable way.  CoreOS, which became part of Red Hat in 2018, created the Operator Framework.
+
+
+
+==== Custom Resource Definition
+
+https://docs.openshift.com/container-platform/3.11/dev_guide/creating_crd_objects.html#crd_dev-guide-crd
+
+In the Kubernetes API a resource is an endpoint that stores a collection of API objects of a certain kind. For example, the built-in pods resource contains a collection of Pod objects.
+
+A custom resource is an object that extends the Kubernetes API or allows you to introduce your own API into a project or a cluster.
+
+A custom resource definition (CRD) file defines your own object kinds and lets the API Server handle the entire lifecycle.
+
+==== OpenShift Client Tools
+
+https://docs.openshift.com/container-platform/3.11/cli_reference/get_started_cli.html
+
+The OpenShift Online CLI exposes commands for managing your applications, as well as lower level tools to interact with each component of your system. 
+
+===== oc login 
+The oc login command is the best way to initially set up the CLI, and it serves as the entry point for most users. The interactive flow helps you establish a session to an OpenShift Online server with the provided credentials. The information is automatically saved in a CLI configuration file that is then used for subsequent commands.
