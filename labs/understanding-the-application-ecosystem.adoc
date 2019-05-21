@@ -43,7 +43,8 @@ oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-strea
 
 We also have a simple application that consumes messages.
 
-----
+```yaml
+
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -66,7 +67,8 @@ spec:
               value: "production-ready-kafka-bootstrap.amq-streams.svc:9092"
             - name: CAMEL_COMPONENT_KAFKA_CONFIGURATION_GROUP_ID
               value: test-group
-----
+
+```
 
 Now, let's deploy the message consumer.
 
@@ -75,11 +77,16 @@ oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-strea
 ----
 
 Make sure that everything works and all the applications are started, then we will validate that the applications communicate with each other.
+
 First, let's find the pod address for the consumer.
 
 ----
 oc get pods | grep log-consumer
 ----
+
+You can also view the applications in the OpenShift console:
+
+image::images/understanding-the-application-ecosystem-01.png[OpenShift Console Timer and Consumer applications]
 
 Wait until the container is running.
 The result should be something along the lines of (notice that the pod id will be different - copy it for the next step):
@@ -105,6 +112,11 @@ We expect the output to look like as follows:
 ----
 
 Messages should continue to arrive every five seconds, and this indicates that the two applications communicate with each other.
+
+The logs can also be viewed in the OpenShift console:
+
+image::images/understanding-the-application-ecosystem-02.png[OpenShift Console Consumer logs]
+
 
 Now let's delete the two applications.
 
