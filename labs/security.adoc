@@ -173,7 +173,10 @@ java -jar timer-producer.jar \
 ```
 Looking at the logs, we see a lot of errors - the clients cannot connect anymore.
 
+image::images/security-02.png[secure-topic-reader Secret]
+
 We need to reconfigure the running apps:
+
 ----
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -264,5 +267,7 @@ oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-strea
 
 Inspect the log of `log-consumer` again.
 You should see the messages being exchanged.
+
+image::images/security-04.png[secure-topic-reader Secret]
 
 link:./README.adoc[Lab Instructions]
