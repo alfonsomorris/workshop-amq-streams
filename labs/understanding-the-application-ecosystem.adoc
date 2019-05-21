@@ -124,3 +124,5 @@ Now let's delete the two applications.
 oc delete deployment log-consumer
 oc delete deployment timer-producer
 ----
+
+link:./README.adoc[Lab Instructions]
