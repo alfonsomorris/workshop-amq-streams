@@ -366,3 +366,5 @@ In this workshop module, you have:
 * Configured and Installed AMQ Streams
 * Deployed a simple Kafka cluster
 * Run a producer and consumer to validate the settings
+
+link:./README.adoc[Lab Instructions]
