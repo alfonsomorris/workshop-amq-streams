@@ -17,6 +17,10 @@ Log into the console as the admin with user "admin" and the password supplied by
 
 image::images/0-to-60-02.png[OpenShift Console]
 
+You should already have a project "amq-streams."  Click on the link, "amq-streams," and have a look around.  There shouldn't be much there yet though.
+
+We will come back to the console throughout the lab.
+
 === AMQ Streams installation files
 
 SSH into your workstation if you are not already in:
@@ -26,7 +30,6 @@ SSH into your workstation if you are not already in:
 ssh -i ./msp.pem -vvv cloud-user@workstation-GUID.rhpds.opentlc.com
 
 ```
-
 
 All the components necessary for installing AMQ Streams have been downloaded and extracted locally.
 Once you log into the workstation machine, you should find a directory named `kafka`.
@@ -79,13 +82,12 @@ oc project amq-streams
 
 ```
 
-
 === Configuring the cluster operator and installing it
 
 The configuration files for the cluster operator are available in the `install/cluster-operator` folder.
 Let's take a quick look.
 
-```shell
+```bash
 
 $ ls install/cluster-operator
 010-ServiceAccount-strimzi-cluster-operator.yaml
@@ -133,11 +135,11 @@ Let's take a look at the result in one of the modified files:
 
 more install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml
 
-```
+```bash
 
 The output should look like this:
 
-```
+```yaml
 
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: RoleBinding
@@ -154,6 +156,7 @@ roleRef:
   name: strimzi-cluster-operator-namespaced
   apiGroup: rbac.authorization.k8s.io
 
+
 ```
 
 Notice the `amq-streams` value configured for the `subjects.namespace` property.
@@ -165,7 +168,7 @@ Now that the configuration files have been set, we can proceed with installing t
 
 Once the configuration files are changed, you can install the cluster operator:
 
-```
+```bash
 
 oc apply -f install/cluster-operator
 
@@ -214,7 +217,7 @@ spec:
 
 Now let's create the cluster by deploying this new custom resource:
 
-```shell
+```bash
 
 oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-streams/master/configurations/clusters/simple-cluster.yaml
 
@@ -232,7 +235,7 @@ You should see three separate deployments:
 Now, let's quickly test that the deployed Kafka cluster works.
 Let's log into one of the cluster pods:
 
-```shell
+```bash
 
 $ oc rsh simple-cluster-kafka-0
 
@@ -240,7 +243,7 @@ $ oc rsh simple-cluster-kafka-0
 
 Next, let's start a producer:
 
-```shell
+```bash
 
 $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test-topic
 
@@ -248,7 +251,7 @@ $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test-topic
 
 Once the console producer is started, enter a few values:
 
-```shell
+```bash
 
 > test
 > test2
@@ -270,24 +273,30 @@ OpenJDK 64-Bit Server VM warning: If the number of processors is expected to inc
 
 Now let's open another terminal into the cluster pod in a separate terminal (open another `ssh` terminal into the workstation):
 
-----
+```bash
+
 $ oc rsh simple-cluster-kafka-0
-----
+
+```
 
 And let's start a consumer:
 
-----
+```bash
+
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning
-----
+
+```
 
 Once the consumer is started, you should see the previously sent messages in the output.
 Reverting to the terminal where we started the console producer and sending any new messages there will result in those messages being displayed in the consumer terminal.
 
 Now let's stop both producer and consumer applications with `CTRL-C` and then exit from the terminal of both containers.
 
-----
+```bash
+
 exit
-----
+
+```
 
 === Kafka clusters and Kafka resources
 
@@ -295,9 +304,12 @@ The Kafka resource we just created is a representation of the running Kafka clus
 You can use it to inspect and modify the current cluster configuration.
 For example:
 
-----
+```bash
+
 oc get kafka simple-cluster -o yaml
-----
+
+```
+
 
 Will yield a detailed representation of the resource on the cluster:
 
@@ -341,7 +353,7 @@ spec:
 Finally, let's delete the Kafka cluster.
 We will replace it with a configuration that is more appropriate for real world use cases.
 
-```shell
+```bash
 
 oc delete kafka simple-cluster
 
