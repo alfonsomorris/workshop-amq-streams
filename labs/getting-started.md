@@ -13,3 +13,15 @@ After you submit you will be taken to a confirmation page with a GUID.  You need
 Download the key file: http://bit.ly/2LYZnYX
 
 ![Dopbbox](images/getting-started-03.png "Step 3 - Download pem file")
+
+SSH into your workstation
+
+```shell
+
+ssh -i ./msp.pem -vvv cloud-user@workstation-GUID.rhpds.opentlc.com
+
+```
+
+You are ready to go!
+
+[Instructions](README.adoc)
