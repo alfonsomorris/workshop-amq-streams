@@ -4,6 +4,19 @@
 
 In this module you will learn how to install AMQ Streams on OpenShift.
 
+=== Log into the OpenShift console
+
+Your OpenShift cosole can be found at (replace "GUID" with your GUID of course): 
+https://master00-GUID.generic.opentlc.com/console
+
+You will see a warning message about the certificate which you can safely ignore.
+
+image::images/0-to-60-01.jpg[Certificate Warning]
+
+Log into the console as the admin with user "admin" and the password supplied by your instructor
+
+image::images/0-to-60-02.jpg[Certificate Warning]
+
 === AMQ Streams installation files
 
 SSH into your workstation if you are not already in:
@@ -45,7 +58,7 @@ Log in as the administrator with the password supplied by the instructor.
 
 ```bash
 
-    oc login -u admin master00.example.com
+oc login -u admin master00.example.com
 
 ```
 
@@ -54,7 +67,7 @@ If it does not exist, you can create it.
 
 ```bash
 
-    oc new-project amq-streams
+oc new-project amq-streams
 
 ```
 
@@ -65,6 +78,7 @@ If it does already exist, be sure that it is the current project working on.
 oc project amq-streams
 
 ```
+
 
 === Configuring the cluster operator and installing it
 
