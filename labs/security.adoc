@@ -150,7 +150,7 @@ oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-strea
 
 Start the applications again from 2 different tabs/windows:
 
-```shell
+```bash
 
 java -jar log-consumer.jar \
       --camel.component.kafka.configuration.brokers=production-ready-kafka-bootstrap-amq-streams.apps-<GUID>.generic.opentlc.com:443 \
@@ -158,10 +158,11 @@ java -jar log-consumer.jar \
       --camel.component.kafka.configuration.ssl-truststore-location=keystore.jks \
       --camel.component.kafka.configuration.ssl-truststore-password=password
 
-````
+```
+
 and 
 
-````shell
+```bash
 
 java -jar timer-producer.jar \
       --camel.component.kafka.configuration.brokers=production-ready-kafka-bootstrap-amq-streams.apps-<GUID>.generic.opentlc.com:443 \
@@ -169,7 +170,7 @@ java -jar timer-producer.jar \
       --camel.component.kafka.configuration.ssl-truststore-location=keystore.jks \
       --camel.component.kafka.configuration.ssl-truststore-password=password --server.port=0
 
-````
+```
 Looking at the logs, we see a lot of errors - the clients cannot connect anymore.
 
 We need to reconfigure the running apps:
