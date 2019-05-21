@@ -11,11 +11,11 @@ https://master00-GUID.generic.opentlc.com/console
 
 You will see a warning message about the certificate which you can safely ignore.
 
-image::images/0-to-60-01.jpg[Certificate Warning]
+image::images/0-to-60-01.png[Certificate Warning]
 
 Log into the console as the admin with user "admin" and the password supplied by your instructor
 
-image::images/0-to-60-02.jpg[Certificate Warning]
+image::images/0-to-60-02.png[OpenShift Console]
 
 === AMQ Streams installation files
 
