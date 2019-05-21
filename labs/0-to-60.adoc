@@ -1,8 +1,19 @@
+:source-highlighter: pygments
+
 == AMQ Streams on OpenShift from 0 to 60
 
 In this module you will learn how to install AMQ Streams on OpenShift.
 
 === AMQ Streams installation files
+
+SSH into your workstation if you are not already in:
+
+```shell
+
+ssh -i ./msp.pem -vvv cloud-user@workstation-GUID.rhpds.opentlc.com
+
+```
+
 
 All the components necessary for installing AMQ Streams have been downloaded and extracted locally.
 Once you log into the workstation machine, you should find a directory named `kafka`.
