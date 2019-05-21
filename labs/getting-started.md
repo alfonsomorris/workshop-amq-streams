@@ -8,4 +8,8 @@ link:images/getting-started-01.png[]
 
 After you submit you will be taken to a confirmation page with a GUID.  You need this GUID for the lab so copy it down!
 
-![GUID](images/getting-started-01.png "Step 1 - GUID")
+![GUID](images/getting-started-02.png "Step 1 - GUID")
+
+Download the key file: http://bit.ly/2LYZnYX
+
+![Dopbbox](images/getting-started-03.png "Step 3 - Download pem file")
