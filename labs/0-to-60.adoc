@@ -230,6 +230,16 @@ You should see three separate deployments:
 * `simple-cluster-kafka` - a stateful set containing the Kafka cluster
 * `simple-cluster-entity-operator` - a deployment containing the entity operator for managing topics and users
 
+=== OpenShift Console
+
+You can inspect the cluster in the OpenShift console.  Click on the Strimzi application or the other resources to see details and view the logs
+
+image::images/0-to-60-04.png[Strimzi Application]
+
+image::images/0-to-60-05.png[Application Details]
+
+image::images/0-to-60-06.png[Application Logs]
+
 === Testing the deployment
 
 Now, let's quickly test that the deployed Kafka cluster works.
