@@ -10,7 +10,7 @@ After you submit you will be taken to a confirmation page with a GUID.  You need
 
 ![GUID](images/getting-started-02.png "Step 1 - GUID")
 
-Download the key file: http://bit.ly/2LYZnYX
+Download the key file: http://bit.ly/2YBwR0E
 
 ![Dopbbox](images/getting-started-03.png "Step 3 - Download pem file")
 
