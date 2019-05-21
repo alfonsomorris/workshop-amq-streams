@@ -49,12 +49,18 @@ oc apply -f https://raw.githubusercontent.com/RedHatWorkshops/workshop-amq-strea
 ----
 
 You can see that the Cluster Operator is starting a rolling update on the Kafka cluster, restarting each broker one by one for updating their configuration in order to expose the cluster outside of OpenShift.
+
 Now you can inspect the existing services.
+
 Notice that each of the brokers in the cluster has a route and a new bootstrap service has been created for external connections.
 
-----
+```bash
+
 oc get routes
-----
+
+```
+
+image::images/clients-within-outside-OCP-01.png[Routes]
 
 === Connecting external clients
 
