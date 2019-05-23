@@ -12,7 +12,7 @@ After you submit you will be taken to a confirmation page with a GUID.  You need
 
 Download the key file from Dropbox
 
-* pem for use with Mac or Linux: http://bit.ly/2LYZnYX
+* pem for use with Mac or Linux: http://bit.ly/2YBwR0E
 * ppk for use with Putty: http://bit.ly/2YGNpV614
 
 ![Dopbbox](images/getting-started-03.png "Step 3 - Download pem file")
