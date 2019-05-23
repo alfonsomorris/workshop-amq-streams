@@ -10,7 +10,10 @@ After you submit you will be taken to a confirmation page with a GUID.  You need
 
 ![GUID](images/getting-started-02.png "Step 1 - GUID")
 
-Download the key file: http://bit.ly/2LYZnYX
+Download the key file from Dropbox
+
+* pem for use with Mac or Linux: http://bit.ly/2LYZnYX
+* ppk for use with Putty: http://bit.ly/2YGNpV614
 
 ![Dopbbox](images/getting-started-03.png "Step 3 - Download pem file")
 
